@@ -6,8 +6,14 @@
   font-size: 3em;
 }
 
-#video {
-  display:none;
+#wait progress {
+  position: fixed;
+  top: calc(50% - 0.5em);
+  left: calc(50% - 0.5em);
+}
+
+#video, #pong, #playButton[play="true"] {
+  display: none;
 }
 
 circle {
@@ -25,6 +31,12 @@ path {
   stroke-width: 10px;
 }
 
+svg {
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+}
+
 #player {
   display: none;
   float: left;
@@ -32,12 +44,12 @@ path {
   text-align: center;
 }
 
-#playButton[play="true"] {
-  display:none;
+#player {
+  position: relative;
 }
 
 #stopButton {
-  display:none;
+  display: none;
   opacity: 0.3;
 }
 
@@ -51,18 +63,4 @@ path {
 
 #playButton:hover circle {
   stroke-width: 10;
-}
-
-canvas#pong {
-    display: none;
-}
-
-svg {
-    position: absolute;
-    top: calc(50% - 50px);
-    left: calc(50% - 50px);
-}
-
-#player {
-    position: relative;
 }
