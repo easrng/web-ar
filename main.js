@@ -1,21 +1,7 @@
-// Please, hack me!
-
 const PI4 = 0.785398;
 
 //Main object
 var processor = {
-  isFirefox35: function() {
-    // Let a chance to the navigator to deal with it:
-    return true;
-    var ua = navigator.userAgent;
-    // Gecko ?
-    if (ua.indexOf("Gecko") == -1)
-      return false;
-
-    // Geck >= 1.9.1 ?
-    return !(ua.indexOf("rv:1.9.1") == -1 &&
-             ua.indexOf("rv:1.9.2") == -1);
-  },
   // Init
   doLoad: function() {
     if (!this.isFirefox35()) {
@@ -310,27 +296,3 @@ if (navigator.mediaDevices.getUserMedia) {
     return;
   }
 };
-
-// ... cool, isn't it :)
-
-/*
-     FILE ARCHIVED ON 21:08:16 Oct 03, 2016 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 19:35:39 Apr 07, 2019.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  LoadShardBlock: 74.1 (3)
-  esindex: 0.01
-  captures_list: 94.375
-  CDXLines.iter: 13.728 (3)
-  PetaboxLoader3.datanode: 51.765 (4)
-  exclusion.robots: 0.191
-  exclusion.robots.policy: 0.177
-  RedisCDXSource: 2.358
-  PetaboxLoader3.resolve: 53.367 (2)
-  load_resource: 42.801
-*/
