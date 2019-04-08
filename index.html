@@ -8,8 +8,8 @@
         <script type="text/javascript" src="pong.js"></script>
     </head>
 
-    <body onload="processor.doLoad()">
-        <video id="video" oncanplay="processor.videoIsReady()"></video>
+    <body onload="doLoad()">
+        <video id="video" oncanplay="videoIsReady()"></video>
 
         <p id="wait">Wait...</p>
         <h2 id="nofirefoxbeta">It's not working in this version, <a style="color: red;" href="https://web.archive.org/web/20160817102526/http://www.mozilla.com/en-US/firefox/all-beta.html">get Firefox 3.1 Beta 3</a></h2>
@@ -23,12 +23,12 @@
             <canvas id="mirrorVideo"> </canvas>
             <svg id="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
             <path d="M 40 70 L 70 50 L 40 30"/>
-            <circle cx="50" cy="50" r="40" onclick="processor.playVideo()"/>
+            <circle cx="50" cy="50" r="40" onclick="playVideo()"/>
             </svg>
             <svg id="stopButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
             <path d="M 40 70 L 40 30"/>
             <path d="M 60 70 L 60 30"/>
-            <circle cx="50" cy="50" r="40" onclick="processor.stopVideo()"/>
+            <circle cx="50" cy="50" r="40" onclick="stopVideo()"/>
             </svg>
 
         </div>
@@ -39,35 +39,35 @@
             <span>
                 Video:
                 <br/>
-                <video id="tiny_video" controls="true" width="150" height="150" src="billyBrowsers.ogg" onclick="processor.updatePattern(this, true)"></video>
+                <video id="tiny_video" controls="true" width="150" height="150" src="billyBrowsers.ogg" onclick="updatePattern(this, true)"></video>
             </span>
             <span>
                 Image:
                 <br/>
-                <img id="token" width="150" height="150" src="token.jpg" onclick="processor.updatePattern(this, true)"/>
+                <img id="token" width="150" height="150" src="token.jpg" onclick="updatePattern(this, true)"/>
             </span>
             <span>
                 Image:
                 <br/>
-                <img id="ff" width="150" height="150" src="firefox.png" onclick="processor.updatePattern(this, false)"/>
+                <img id="ff" width="150" height="150" src="firefox.png" onclick="updatePattern(this, false)"/>
             </span>
             <br/>
             <span>
                 Canvas:
                 <br/>
-                <canvas id="pong" width="150" height="150" onclick="processor.updatePattern(this, true)"></canvas>
+                <canvas id="pong" width="150" height="150" onclick="updatePattern(this, true)"></canvas>
             </span>
             <span>
                 Your text:
                 <br/>
-                <canvas id="yourtext" width="150" height="150" onclick="processor.updatePattern(this, false); document.getElementById('message').focus()"></canvas>
+                <canvas id="yourtext" width="150" height="150" onclick="updatePattern(this, false); document.getElementById('message').focus()"></canvas>
                 <input id="message"/>
             </span>
             <span>
                 Your drawing:
                 <br/>
-                <canvas id="yourdrawing" width="150" height="150" onclick="processor.updatePattern(this, false)"></canvas>
-                <input value="clear" type="button" onclick="processor.clearPainter()"/>
+                <canvas id="yourdrawing" width="150" height="150" onclick="updatePattern(this, false)"></canvas>
+                <input value="clear" type="button" onclick="clearPainter()"/>
                 3 </span>
         </div>
     </body>
