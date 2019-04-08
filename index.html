@@ -1,6 +1,7 @@
 <!doctype html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, allow-scale=0">
         <title>Dynamic Content Injection</title>
         <link href="style.css" type="text/css" rel="stylesheet"></link>
         <script type="text/javascript" src="main.js"></script>
@@ -15,11 +16,11 @@
         <div id="wait"><progress class="matter-progress-circular"></progress></div>
         <div id="player">
             <canvas id="mirrorVideo"> </canvas>
-            <svg class="matter-button-text" id="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+            <svg id="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
             <path d="M 40 70 L 70 50 L 40 30"/>
             <circle cx="50" cy="50" r="40" onclick="processor.playVideo()"/>
             </svg>
-            <svg class="matter-button-text" id="stopButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
+            <svg id="stopButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
             <path d="M 40 70 L 40 30"/>
             <path d="M 60 70 L 60 30"/>
             <circle cx="50" cy="50" r="40" onclick="processor.stopVideo()"/>
