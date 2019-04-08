@@ -45,13 +45,6 @@ path {
   display: block;
 }
 
-svg {
-  position: absolute;
-  top: 450px;
-  left: 100px;
-}
-
-
 #stopButton:hover {
   opacity: 1;
 }
@@ -60,37 +53,16 @@ svg {
   stroke-width: 10;
 }
 
-#patterns {
-  text-align: center;
-  float: left;
+canvas#pong {
+    display: none;
 }
 
-#patterns span {
-  display: block;
-  margin: 2px;
-  width: 180px;
-  float: left;
+svg {
+    position: absolute;
+    top: calc(50% - 50px);
+    left: calc(50% - 50px);
 }
 
-#patterns span canvas,
-#patterns span img,
-#patterns span video {
-  border: 5px solid #a5a5a5;
-}
-
-*[pattern="true"] {
-  border: 5px solid black !important;
-}
-
-#pong {
-  background: white;
-}
-
-br {
-  clear: both;
-}
-
-a img {
-  border: 0px;
-  margin-top: 1em;
+#player {
+    position: relative;
 }
