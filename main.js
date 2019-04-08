@@ -4,9 +4,6 @@ const PI4 = 0.785398;
 var processor = {
   // Init
   doLoad: function() {
-    if (!this.isFirefox35()) {
-      document.getElementById("nofirefoxbeta").style.display = "block";
-    }
     // Some init
     this.displayBackground = true;
     this.video = document.getElementById("video");
