@@ -4,22 +4,14 @@
         <title>Dynamic Content Injection</title>
         <link href="style.css" type="text/css" rel="stylesheet"></link>
         <script type="text/javascript" src="main.js"></script>
-        <script type="text/javascript" src="canvas.js"></script>
         <script type="text/javascript" src="pong.js"></script>
     </head>
 
     <body onload="processor.doLoad()">
         <video id="video" oncanplay="processor.videoIsReady()"></video>
 
-        <p id="wait">Wait...</p>
-        <h2 id="nofirefoxbeta">It's not working in this version, <a style="color: red;" href="https://web.archive.org/web/20160817102526/http://www.mozilla.com/en-US/firefox/all-beta.html">get Firefox 3.1 Beta 3</a></h2>
-
-        <p>
-        <h1>Dynamic Content Injection</h1>
-        <em>Only Open Web technologies inside!</em>
-        </p>
+        <div id="wait">Wait...</div>
         <div id="player">
-            <h2>Click to play:</h2>
             <canvas id="mirrorVideo"> </canvas>
             <svg id="playButton" xmlns="http://www.w3.org/2000/svg" width="100" height="100">
             <path d="M 40 70 L 70 50 L 40 30"/>
@@ -32,43 +24,6 @@
             </svg>
 
         </div>
-
-        <div id="patterns">
-            <h2>Choose a pattern:</h2>
-            <br/>
-            <span>
-                Video:
-                <br/>
-                <video id="tiny_video" controls="true" width="150" height="150" src="billyBrowsers.ogg" onclick="processor.updatePattern(this, true)"></video>
-            </span>
-            <span>
-                Image:
-                <br/>
-                <img id="token" width="150" height="150" src="token.jpg" onclick="processor.updatePattern(this, true)"/>
-            </span>
-            <span>
-                Image:
-                <br/>
-                <img id="ff" width="150" height="150" src="firefox.png" onclick="processor.updatePattern(this, false)"/>
-            </span>
-            <br/>
-            <span>
-                Canvas:
-                <br/>
-                <canvas id="pong" width="150" height="150" onclick="processor.updatePattern(this, true)"></canvas>
-            </span>
-            <span>
-                Your text:
-                <br/>
-                <canvas id="yourtext" width="150" height="150" onclick="processor.updatePattern(this, false); document.getElementById('message').focus()"></canvas>
-                <input id="message"/>
-            </span>
-            <span>
-                Your drawing:
-                <br/>
-                <canvas id="yourdrawing" width="150" height="150" onclick="processor.updatePattern(this, false)"></canvas>
-                <input value="clear" type="button" onclick="processor.clearPainter()"/>
-                3 </span>
-        </div>
+        <canvas id="pong" width="150" height="150"></canvas>
     </body>
 </html> 
