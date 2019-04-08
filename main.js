@@ -10,54 +10,33 @@ var processor = {
     this.mirrorVideo = document.getElementById("mirrorVideo");
     this.mirrorVideoCtx = this.mirrorVideo.getContext("2d");
     var self = this;
-
-    // If the videos end, play again
-    this.video.addEventListener("ended", function() {
-      try { clearTimeout(self.timeout); } catch(e) {}
-      self.video.play(); 
-      // Work around: https://bugzilla.mozilla.org/show_bug.cgi?id=488287
-      self.videoIsPlaying();
-    }, true);
-    var tiny_video = document.getElementById("tiny_video");
-    tiny_video.addEventListener("ended", function() {
-      tiny_video.play(); 
-    }, true);
-
-    // Update the text while typing for the "your text" pattern
-    document.getElementById("message").addEventListener("keyup", function() {
-      self.updateText();
-    }, true);
-
-    // Init the "your drawing" pattern
-    this.initPainter();
-
+    
     // Init the pong pattern
     var pongCtx = document.getElementById("pong").getContext("2d");
     this.pong = new Pong(pongCtx);
     setInterval(function () {self.pong.update()}, 50);
+    processor.updatePattern(document.getElementById("pong"), true)
 
     // ... some stuffs
     this.oldShape1 = null;
     this.oldShape2 = null;
 
-    // Set the first pattern
-    this.updatePattern(document.getElementById("token"), true);
-
     // Set the events listeners for the main video (update button)
     this.video.addEventListener("pause", function() { self.updateButtons(false); }, false);
     this.pageLoaded = true;
     this.startPlayer();
-var video = document.querySelector("#video");
 
-if (navigator.mediaDevices.getUserMedia) {
-  navigator.mediaDevices.getUserMedia({ video: true })
-    .then(function (stream) {
-      video.srcObject = stream;
-    })
-    .catch(function (err0r) {
-      console.log("Something went wrong!");
-    });
-}
+    var video = document.querySelector("#video");
+
+    if (navigator.mediaDevices.getUserMedia) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(function (stream) {
+        video.srcObject = stream;
+      })
+        .catch(function (err) {
+        console.log("Something went wrong!");
+      });
+    }
   },
   videoIsPlaying: function() {
       this.updateButtons(true);
@@ -116,60 +95,6 @@ if (navigator.mediaDevices.getUserMedia) {
     document.getElementById("playButton").setAttribute("play", play);
     document.getElementById("stopButton").setAttribute("play", play);
   },
-  // Handling some patterns (text, drawing)
-  updateText: function() {
-    var txt = document.getElementById("message").value;
-    var ctx = document.getElementById("yourtext").getContext("2d");
-    ctx.fillStyle = "#fff";
-    ctx.font = "50px bold";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-
-    ctx.clearRect(0, 0, 150, 150);
-    ctx.save();
-    ctx.translate(75, 75);
-    ctx.rotate(PI4);
-    ctx.translate(-75, -75);
-    ctx.fillText(txt, 75, 75, 150);
-    ctx.restore();
-  },
-  clearPainter: function() {
-    var elt = document.getElementById("yourdrawing");
-    var ctx = elt.getContext("2d");
-    ctx.clearRect(0, 0, 150, 150);
-    this.oldCoord = {};
-  },
-  initPainter: function() {
-    var drawing = false;
-    var elt = document.getElementById("yourdrawing");
-    var ctx = elt.getContext("2d");
-    this.oldCoord = {};
-    ctx.fillStyle = ctx.createPattern(document.getElementById("ff"), "repeat");
-
-    var self = this;
-    elt.addEventListener("mousedown", function() {
-      drawing = true;
-    }, true);
-    elt.addEventListener("mouseup", function() {
-      drawing = false;
-      elt.removeAttribute("pattern");
-    }, true);
-    elt.addEventListener("mousemove", function(e) {
-      if (!drawing) return;
-      var x = e.clientX - elt.offsetLeft + window.pageXOffset;
-      var y = e.clientY - elt.offsetTop + window.pageYOffset;
-
-      var r = 28;
-      if (self.oldCoord.x) {
-        ctx.fillStyle = "rgba(250, 0, 0, 1)";
-        ctx.fillCircle(self.oldCoord.x - (r+2)/2, self.oldCoord.y - (r+2)/2, r + 2);
-      }
-      self.oldCoord.x = x;
-      self.oldCoord.y = y;
-      ctx.drawImage(document.getElementById("ff"), x - r, y - r, r, r);
-    }, true);
-  },
-
   // Compute William's movements
   dist: function(x1, y1, x2, y2) {
     return Math.sqrt((x1 - x2) * (x1 - x2) + (y1 - y2) * (y1 - y2));
