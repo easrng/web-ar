@@ -1,12 +1,4 @@
-body {
-  color:#CCCCCC; 
-  background: black;
-}
-
 #mirrorVideo {
-  -moz-border-image: url(/web/20161003210817im_/http://people.mozilla.org/~prouget/demos/DynamicContentInjection/tv-border.jpg) 25 31 37 31 stretch stretch;
-  border-width: 20px;
-
   margin: 0 auto;
 }
 
@@ -19,14 +11,14 @@ body {
 }
 
 circle {
-  stroke: white;
+  stroke: black;
   stroke-width: 5px;
   fill-opacity: 0;
 }
 
 path {
-  fill: white;
-  stroke: white;
+  fill: black;
+  stroke: black;
 }
 
 #stopButton path {
@@ -83,11 +75,11 @@ svg {
 #patterns span canvas,
 #patterns span img,
 #patterns span video {
-  border: 5px solid #333;
+  border: 5px solid #a5a5a5;
 }
 
 *[pattern="true"] {
-  border: 5px solid white !important;
+  border: 5px solid black !important;
 }
 
 #pong {
@@ -102,29 +94,3 @@ a img {
   border: 0px;
   margin-top: 1em;
 }
-
-#nofirefoxbeta {
-  display: none;
-}
-
-/*
-     FILE ARCHIVED ON 21:08:17 Oct 03, 2016 AND RETRIEVED FROM THE
-     INTERNET ARCHIVE ON 19:35:39 Apr 07, 2019.
-     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
-
-     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
-     SECTION 108(a)(3)).
-*/
-/*
-playback timings (ms):
-  LoadShardBlock: 56.555 (3)
-  esindex: 0.016
-  captures_list: 82.01
-  CDXLines.iter: 16.224 (3)
-  PetaboxLoader3.datanode: 78.356 (4)
-  exclusion.robots: 0.247
-  exclusion.robots.policy: 0.226
-  RedisCDXSource: 1.684
-  PetaboxLoader3.resolve: 22.229
-  load_resource: 77.835
-*/
